@@ -1,0 +1,32 @@
+language: node_js
+
+node_js:
+  - "10"
+
+env:
+  - CXX=g++-4.8 LUX_RPC_ADDRESS='http://lux:lux@localhost:30000' SENDER_ADDRESS='LUXK8FNPRm54jvTLAGEs1biTCgyCkcsmna' WALLET_PASSPHRASE='lux'
+
+addons:
+  apt:
+    sources:
+    - ubuntu-toolchain-r-test
+    packages:
+    - gcc-4.8
+    - g++-4.8
+
+cache:
+  directories:
+    - "node_modules"
+
+before_install:
+  - wget https://github.com/LUX-Core/lux/releases/download/v5.2.5/lux-qt-linux-18.zip
+
+install:
+  - tar -xvzf lux-qt-linux-18.zip
+  - npm install
+  - mkdir test/data/.lux
+
+script:
+  - .lux/luxd -testnet -logevents -rpcuser=rpcuser -rpcpassword=rpcpassword -datadir=./test/data/.lux
+  - npm run test:cleanenv
+
