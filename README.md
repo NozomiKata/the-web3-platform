@@ -2,21 +2,19 @@
 
 Web3 API's turned into React Hooks. #useTheWeb3Platform
 
-## Install
+## Install  nvm v8.0.0
 
-> Note: React 16.7+ is required for Hooks.
+  curl https://raw.githubusercontent.com/creationix/nvm/v0.16.1/install.sh | sh
+  
+  source ~/.profile
+  
+  nvm install v8.0.0
+  
+  nvm use v8.0.0
+  
+## Install web3 libs
 
-### With npm
-
-```sh
-npm i the-web3-platform --save
-```
-
-### Or with yarn
-
-```sh
-yarn add the-web3-platform
-```
+  npm install
 
 #### useWeb3 hook Example
 
